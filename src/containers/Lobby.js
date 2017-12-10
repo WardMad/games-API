@@ -1,4 +1,3 @@
-// src/containers/Lobby.js
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
@@ -41,18 +40,18 @@ class Lobby extends PureComponent {
     let ActionIcon = this.isJoinable(game) ? JoinGameIcon : WatchGameIcon
     if (this.isPlayer(game)) ActionIcon = this.isPlayable(game) ? PlayGameIcon : WaitingIcon
 
-    if (!game.players[0].name) { this.props.fetchPlayers(game) }
-
-    const title = game.players.map(p => (p.name || null))
-      .filter(n => !!n)
-      .join(' vs ')
+    // if (!game.players[0].name) { this.props.fetchPlayers(game) }
+    //
+    // const title = game.players.map(p => (p.name || null))
+    //   .filter(n => !!n)
+    //   .join(' vs ')
 
     return (
       <MenuItem
         key={index}
         onClick={this.goToGame(game._id)}
         rightIcon={<ActionIcon />}
-        primaryText={title} />
+        primaryText={this.title} />
     )
   }
 
