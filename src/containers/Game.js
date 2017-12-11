@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { fetchOneGame, fetchPlayers } from '../actions/games/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import JoinGameDialog from '../components/games/JoinGameDialog'
-import './Game.css'
+import Board from '../components/games/Board'
+
 const playerShape = PropTypes.shape({
   userId: PropTypes.string.isRequired,
   pairs: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -66,23 +67,7 @@ class Game extends PureComponent {
 
         <h1>YOUR GAME HERE! :)</h1>
         <div>
-          <table className ='Board'>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-          </table>
+          <Board />
         </div>
 
         // <h2>Debug Props</h2>
