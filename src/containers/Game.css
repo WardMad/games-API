@@ -1,0 +1,15 @@
+table {
+  margin: 0 auto;
+}
+
+td {
+border: 1px solid white;
+height: 150px;
+width: 150px;
+background-image: url('https://www.abco.sa.com/wp-content/uploads/2016/03/003-subtle-light-pattern-background-texture-vol5-150x150.jpg');
+
+}
+
+td:hover {
+  border-radius: 20px;
+}
