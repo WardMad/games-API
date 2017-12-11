@@ -1,15 +1,19 @@
-table {
+table, tbody {
   margin: 0 auto;
 }
 
-td {
-border: 1px solid white;
-height: 150px;
-width: 150px;
-background-image: url('https://www.abco.sa.com/wp-content/uploads/2016/03/003-subtle-light-pattern-background-texture-vol5-150x150.jpg');
-
+input {
+  font-size: 60px;
+  text-align: center;
+  height: 150px;
+  width: 150px;
+  background-image: url('https://www.abco.sa.com/wp-content/uploads/2016/03/003-subtle-light-pattern-background-texture-vol5-150x150.jpg');
+  background-size: cover;
 }
 
-td:hover {
-  border-radius: 20px;
+input:hover,:focus {
+  outline: none;
+  border: 1px solid red;
+  box-shadow: 0 0 10px;
+  border-radius: 10px;
 }
