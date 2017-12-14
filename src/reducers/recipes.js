@@ -1,9 +1,10 @@
 // src/reducers/recipes.js
-import recipes from  '../fixtures/recipes'
+import batches from  '../fixtures/batches'
 import {
-  TOGGLE_LIKE_RECIPE,
-  FETCHED_RECIPES,
-  CREATE_RECIPE
+  TOGGLE_LIKE_BATCHES,
+  FETCHED_BATCHES,
+  CREATE_BATCH,
+  // FETCH_ONE_BATCH,
 } from '../actions/recipes'
 
 const newId = (state) => {
@@ -13,15 +14,15 @@ const newId = (state) => {
   return ['abcd', parseInt(ids[ids.length - 1].split('abcd')[1], 10) + 1].join('')
 }
 
-export default (state = recipes, {type, payload} = {}) => {
+export default (state = batches, {type, payload} = {}) => {
   switch(type) {
-    case FETCHED_RECIPES :
+    case FETCHED_BATCHES :
       return [ ...payload ]
 
-    case CREATE_RECIPE :
+    case CREATE_BATCH :
       return [{ ...payload, _id: newId(state) }].concat(state)
 
-    case TOGGLE_LIKE_RECIPE :
+    case TOGGLE_LIKE_BATCHES :
       return state.map((recipe) => {
         if (recipe._id === payload) {
           return { ...recipe, liked: !recipe.liked }

@@ -1,6 +1,6 @@
-export const TOGGLE_LIKE_RECIPE = 'TOGGLE_LIKE_RECIPE'
+export const TOGGLE_LIKE_BATCH = 'TOGGLE_LIKE_BATCH'
 
 export default (recipeId) => ({
-  type: TOGGLE_LIKE_RECIPE,
+  type: TOGGLE_LIKE_BATCH,
   payload: recipeId
 })

@@ -5,10 +5,10 @@ import {
   LOAD_ERROR,
   LOAD_SUCCESS
 } from '../loading'
-import { RECIPE_PLAYERS_UPDATED } from './subscribe'
 
-export const FETCHED_RECIPES = 'FETCHED_RECIPES'
-export const FETCHED_ONE_RECIPE = 'FETCHED_ONE_RECIPE'
+
+export const FETCHED_BATCHES = 'FETCHED_BATCHES'
+export const FETCHED_ONE_BATCH = 'FETCHED_ONE_BATCH'
 
 const api = new APIClient()
 
@@ -18,7 +18,7 @@ export default () => {
 
 
         api.get('/recipes')
-              .then(res => dispatch({ type: FETCHED_RECIPES, payload: res.body }))
+              .then(res => dispatch({ type: FETCHED_BATCHES, payload: res.body }))
               //.catch(err => dispatch(loadError(err))) ???
 
             // dispatch(loading(false)) // ???
@@ -41,13 +41,7 @@ export const fetchPlayers = (recipe) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
-        dispatch({
-          type: RECIPE_PLAYERS_UPDATED,
-          payload: {
-            recipe,
-            players: result.body
-          }
-        })
+
       })
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
@@ -59,17 +53,17 @@ export const fetchPlayers = (recipe) => {
   }
 }
 
-export const fetchOneRecipe = (id) => {
+export const fetchOneBatch = (id) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/recipes/${id}`)
+    api.get(`/butches/${id}`)
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: FETCHED_ONE_RECIPE,
+          type: FETCHED_ONE_BATCH,
           payload: result.body
         })
       })
