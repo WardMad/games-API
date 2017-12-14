@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import likeRecipe from '../actions/recipes/like'
+import likeRecipe from '../actions/batches/like'
 import LikeButton from '../components/recipes/LikeButton'
 import RecipeCategory from './RecipeCategory'
 import Title from '../containers/Title'
@@ -15,9 +15,7 @@ class RecipeItem extends PureComponent {
   static propTypes = {
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
-    vegan: PropTypes.bool,
-    vegetarian: PropTypes.bool,
-    pescatarian: PropTypes.bool,
+
   }
 
   toggleLike = () => {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import StarIcon from 'material-ui/svg-icons/action/favorite'
-import createRecipe from '../../actions/recipes/create'
+import createRecipe from '../../actions/batches/create'
 
 class CreateRecipeButton extends PureComponent {
   static propTypes = {

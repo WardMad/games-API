@@ -1,7 +1,7 @@
 // src/recipes/RecipesContainer.js
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { fetch as fetchRecipes } from '../actions/recipes'
+import { fetch as fetchRecipes } from '../actions/batches'
 import Title from '../containers/Title'
 import RecipeItem from './RecipeItem'
 import './RecipesContainer.sass'

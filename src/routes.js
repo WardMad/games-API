@@ -7,13 +7,14 @@ import {
 } from './containers'
 import RecipesContainer from './containers/RecipesContainer'
 import RecipePage from './containers/RecipePage'
+import Student from './components/recipes/Student'
 
 export default class Routes extends Component {
   render() {
     return (
       <div>
         <Route exact path="/" component={RecipesContainer} />
-        <Route path="/recipes/:recipeId" component={Recipe} />
+        <Route path="/batches/:batchId" component={Recipe} />
         <Route path="/sign-in" component={SignIn} />
         <Route path="/sign-up" component={SignUp} />
       </div>

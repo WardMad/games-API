@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import fetchRecipes, { fetchPlayers } from '../actions/recipes/fetch'
+import fetchRecipes, { fetchPlayers } from '../actions/batches/fetch'
 import { connect as subscribeToWebsocket } from '../actions/websocket'
 import CreateRecipeButton from '../components/recipes/CreateRecipeButton'
 import Paper from 'material-ui/Paper'

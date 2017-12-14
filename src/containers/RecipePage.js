@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetch as fetchRecipes } from '../actions/recipes'
+import { fetch as fetchRecipes } from '../actions/batches'
 import Title from '../containers/Title'
 
 export class RecipePage extends PureComponent {

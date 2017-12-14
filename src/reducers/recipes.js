@@ -5,7 +5,7 @@ import {
   FETCHED_BATCHES,
   CREATE_BATCH,
   // FETCH_ONE_BATCH,
-} from '../actions/recipes'
+} from '../actions/batches'
 
 const newId = (state) => {
   const ids = state
