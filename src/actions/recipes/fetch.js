@@ -1,31 +1,27 @@
-import API from '../../api/client'
+import APIClient from '../../api/client'
 import {
   APP_LOADING,
   APP_DONE_LOADING,
   LOAD_ERROR,
   LOAD_SUCCESS
 } from '../loading'
-import { GAME_PLAYERS_UPDATED } from './subscribe'
+import { RECIPE_PLAYERS_UPDATED } from './subscribe'
 
-export const FETCHED_GAMES = 'FETCHED_GAMES'
-export const FETCHED_ONE_GAME = 'FETCHED_ONE_GAME'
+export const FETCHED_RECIPES = 'FETCHED_RECIPES'
+export const FETCHED_ONE_RECIPE = 'FETCHED_ONE_RECIPE'
 
-const api = new API()
+const api = new APIClient()
 
 export default () => {
   return (dispatch) => {
     dispatch({ type: APP_LOADING })
 
-    api.get('/games')
-      .then((result) => {
-        dispatch({ type: APP_DONE_LOADING })
-        dispatch({ type: LOAD_SUCCESS })
 
-        dispatch({
-          type: FETCHED_GAMES,
-          payload: result.body
-        })
-      })
+        api.get('/recipes')
+              .then(res => dispatch({ type: FETCHED_RECIPES, payload: res.body }))
+              //.catch(err => dispatch(loadError(err))) ???
+
+            // dispatch(loading(false)) // ???
       .catch((error) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({
@@ -36,19 +32,19 @@ export default () => {
   }
 }
 
-export const fetchPlayers = (game) => {
+export const fetchPlayers = (recipe) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/games/${game._id}/players`)
+    api.get(`/recipes/${recipe._id}/players`)
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: GAME_PLAYERS_UPDATED,
+          type: RECIPE_PLAYERS_UPDATED,
           payload: {
-            game,
+            recipe,
             players: result.body
           }
         })
@@ -63,17 +59,17 @@ export const fetchPlayers = (game) => {
   }
 }
 
-export const fetchOneGame = (id) => {
+export const fetchOneRecipe = (id) => {
   return dispatch => {
     dispatch({ type: APP_LOADING })
 
-    api.get(`/games/${id}`)
+    api.get(`/recipes/${id}`)
       .then((result) => {
         dispatch({ type: APP_DONE_LOADING })
         dispatch({ type: LOAD_SUCCESS })
 
         dispatch({
-          type: FETCHED_ONE_GAME,
+          type: FETCHED_ONE_RECIPE,
           payload: result.body
         })
       })
